@@ -1,0 +1,24 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Evènements{% endblock %}
+
+{% block H1 %}Les évènements de la semaine, inscription obligatoire !{% endblock %}
+
+{% block body %}
+
+<div class="row">
+    {% for event in events %}
+    <div class="col-12 col-md-6 col-lg-4 col-xl-3">
+        <div class="card border-primary mb-3" style="max-width: 20rem;">
+            <div class="card-header">{{ event.dateEvent | date("d-m-Y") }} <b>|</b> {{ event.timeStart | date("H") }}h-{{ event.timeEnd | date("H") }}h</div>
+            <div class="card-body">
+                <h4 class="card-title">{{ event.title }}</h4>
+                <p class="card-text">{{ event.description }}</p>
+                <a href="{{ path('event',{'id': event.id }) }}" class="btn btn-primary">Détail et inscription</a>
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+
+{% endblock %}

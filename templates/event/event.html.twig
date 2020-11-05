@@ -1,0 +1,22 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Evènement{% endblock %}
+
+{% block H1 %}Inscription obligatoire si vous voulez participer !{% endblock %}
+
+{% block body %}
+<div class="jumbotron">
+    <h2 class="display-5">{{ event.title}}</h2>
+    <p class="lead">{{ event.dateEvent | date("d-m-Y") }} <b>|</b> {{ event.timeStart | date("H") }}h-{{ event.timeEnd | date("H") }}h <b>|</b> {{ event.place}}</p>
+    <p class="lead">Participants : {{ event.numberMax }}</p>
+    <hr class="my-2">
+    <p>{{ event.description }}</p>
+    <p class="lead">
+        {{ form(formUser) }}
+    </p>
+    <p class="lead"> 
+        <a href="{{ path('event_edit',{'id': event.id }) }}" class="btn btn-primary">Modifier l'évènement</a>
+    </p>
+</div>
+
+{% endblock %}

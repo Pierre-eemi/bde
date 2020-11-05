@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}Welcome!{% endblock %}</title>
+    <link rel="stylesheet" href="https://bootswatch.com/4/cerulean/bootstrap.min.css">
+    {% block stylesheets %}{% endblock %}
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <a class="navbar-brand" href="/">BDE-EEMI</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor01"
+            aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarColor01">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ path('events')}}">Evènements</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ path('event_create')}}">Créer un évènement</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    <h1 class="border border-info  rounded p-2 m-2 text-center text-white bg-primary">{% block H1 %}{% endblock %}</h1>
+
+    {% for message in app.flashes('success') %}
+        <div class="alert alert-success">
+            {{ message }}
+        </div>
+    {% endfor %}
+
+    <div class="container">{% block body %}{% endblock %}</div>
+    {% block javascripts %}{% endblock %}
+</body>
+
+</html>

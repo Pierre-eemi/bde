@@ -1,0 +1,30 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Créer{% endblock %}
+
+{% block H1 %}Créer ou modifier un évènement{% endblock %}
+
+{% block body %}
+
+{{ form_start(formEvent) }}
+
+{{ form_row(formEvent.title,{'attr':
+{'placeholder':"Titre de l'évènement"}}) }}
+{{ form_row(formEvent.description,{'attr':
+{'placeholder':"Description de l'évènement"}}) }}
+{{ form_row(formEvent.dateEvent,{'attr':
+{'placeholder':"Date de l'évènement"}}) }}
+{{ form_row(formEvent.timeStart,{'attr':
+{'placeholder':"Heure du début de l'évènement"}}) }}
+{{ form_row(formEvent.timeEnd,{'attr':
+{'placeholder':"Heure de fin de l'évènement"}}) }}
+{{ form_row(formEvent.place,{'attr':
+{'placeholder':"Lieux de l'évènement"}}) }}
+{{ form_row(formEvent.numberMax,{'attr':
+{'placeholder':"Nombre de participants"}}) }}
+
+<button type="submit" class="btn btn-primary">Ajouter où modifier l'évènement</button>
+
+{{ form_end(formEvent) }}
+
+{% endblock %}
